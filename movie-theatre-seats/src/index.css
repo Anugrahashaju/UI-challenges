@@ -1,37 +1,49 @@
+/* Base Styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #1f2937;
-  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121826;
+  color: #f1f5f9;
   padding: 2rem;
+  margin: 0;
 }
 
+/* Title */
 h1 {
   text-align: center;
   margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e2e8f0;
 }
 
+/* Screen Display */
 .screen {
   text-align: center;
-  margin: 2rem auto 3rem;
-  width: 80%;
-  height: 30px;
-  background: #9ca3af;
-  border-radius: 4px;
-  line-height: 30px;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 600px;
+  height: 40px;
+  background: #334155;
+  border-radius: 6px;
+  line-height: 40px;
   font-weight: bold;
-  color: #1f2937;
+  color: #cbd5e1;
+  box-shadow: inset 0 0 6px #00000088;
 }
 
+/* Theatre Layout */
 .theatre {
   max-width: 600px;
   margin: 0 auto;
 }
 
+/* Seat Rows */
 .row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .row-label {
@@ -39,75 +51,130 @@ h1 {
   text-align: center;
   font-weight: bold;
   margin-right: 8px;
+  color: #94a3b8;
 }
 
+/* General Seat Styling */
 .seat {
-  width: 64px;
-  height: 64px;
-  margin: 4px;
-  border-radius: 4px;
+  width: 50px;
+  height: 50px;
+  margin: 6px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px #0f172a50;
 }
 
+.seat:hover:not(.occupied) {
+  transform: scale(1.06);
+  box-shadow: 0 0 10px #22d3ee;
+}
+
+/* Seat Status */
 .seat.available {
-  background-color: #10b981;
+  background-color: #046041; /* Emerald */
 }
 
 .seat.occupied {
-  background-color: #ef4444;
+  background-color: #ff0000; /* Red */
   cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.6;
 }
 
+.seat.selected {
+  background-color: #d9ff00;
+  color: #000;
+  border: 2px solid #f8fafc;
+}
+
+/* Seat Type Borders */
 .economy .seat {
-  border: 2px solid #3b82f6;
+  border: 2px solid #09e2ff; /* Blue */
 }
 
 .premium .seat {
-  border: 2px solid #f59e0b;
+  border: 2px solid #f59e0b; /* Amber */
 }
 
 .vip .seat {
-  border: 2px solid #8b5cf6;
+  border: 2px solid #a855f7; /* Purple */
 }
 
+/* Legend */
 .legend {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
 }
 
 .legend span {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #cbd5e1;
 }
 
 .legend-box {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 4px #00000066;
 }
 
-.available-box { background-color: #10b981; }
-.occupied-box { background-color: #ef4444; }
-
-.seat.selected {
-  background-color: #d9ff00;
-  border: 2px solid #fff;
+.available-box {
+  background-color: #054a33;
 }
 
+.occupied-box {
+  background-color: #630303;
+}
 
+/* Light Mode Support */
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  body {
+    background-color: #101922;
+    color: #1e293b;
   }
-  a:hover {
-    color: #747bff;
+
+  .screen {
+    background-color: #e2e8f0;
+    color: #1e293b;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .seat.available {
+    background-color: #065337;
+  }
+
+  .seat.occupied {
+    background-color: #ff0000;
+  }
+
+  .seat.selected {
+    background-color: #d9ff00;
+  }
+}
+
+/* Responsive Tweaks */
+@media screen and (max-width: 480px) {
+  .seat {
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+  }
+
+  .row-label {
+    margin-right: 5px;
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 2rem;
   }
 }
