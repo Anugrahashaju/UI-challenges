@@ -1,0 +1,113 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1f2937;
+  color: #fff;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.screen {
+  text-align: center;
+  margin: 2rem auto 3rem;
+  width: 80%;
+  height: 30px;
+  background: #9ca3af;
+  border-radius: 4px;
+  line-height: 30px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.theatre {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.row-label {
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.seat {
+  width: 64px;
+  height: 64px;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.seat.available {
+  background-color: #10b981;
+}
+
+.seat.occupied {
+  background-color: #ef4444;
+  cursor: not-allowed;
+}
+
+.economy .seat {
+  border: 2px solid #3b82f6;
+}
+
+.premium .seat {
+  border: 2px solid #f59e0b;
+}
+
+.vip .seat {
+  border: 2px solid #8b5cf6;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.available-box { background-color: #10b981; }
+.occupied-box { background-color: #ef4444; }
+
+.seat.selected {
+  background-color: #d9ff00;
+  border: 2px solid #fff;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
