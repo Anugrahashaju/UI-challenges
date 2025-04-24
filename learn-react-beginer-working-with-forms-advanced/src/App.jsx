@@ -1,10 +1,11 @@
-import Register from "./register/Register"
+
+import RegistrationForm from "./register/RegistrationForm"
 
 function App() {
 
   return (
     <>
-      <Register />
+      <RegistrationForm/>
     </>
   )
 }
